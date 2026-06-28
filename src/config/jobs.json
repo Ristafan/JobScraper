@@ -2,28 +2,34 @@
     "jobPriority1":
     {
         "jobNameKeywords": [],
+        "useNameKeywordsAsRegex": false,
         "jobLocation": [],
         "maxJobDistance": 50,
         "jobType": [],
         "occupationalCategory": [],
-        "pensum": []
+        "pensum": [],
+        "openedSinceDays": 0
     },
     "jobPriority2":
     {
         "jobNameKeywords": [],
+        "useNameKeywordsAsRegex": false,
         "jobLocation": [],
         "maxJobDistance": 50,
         "jobType": [],
         "occupationalCategory": [],
-        "pensum": []
+        "pensum": [],
+        "openedSinceDays": 0
     },
     "jobPriority3":
     {
         "jobNameKeywords": [],
+        "useNameKeywordsAsRegex": false,
         "jobLocation": [],
         "maxJobDistance": 50,
         "jobType": [],
         "occupationalCategory": [],
-        "pensum": []
+        "pensum": [],
+        "openedSinceDays": 0
     }
 }

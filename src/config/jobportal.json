@@ -3,8 +3,12 @@
     [
         {
             "name": "Indeed",
-            "url": "https://www.indeed.com",
-            "apiEndpoint": "/api/jobs"
+            "url": "https://www.itjobs.ch",
+            "urlContainsFilter": true,
+            "requestMethod": "GET",
+            "apiEndpoint": "https://www.itjobs.ch/jobs?q=&category=&job_type=50075&location=Z%C3%BCrich%2C+Kanton+Z%C3%BCrich%2C+Schweiz&location_id=1040687",
+            "needsSpecialInstructions": false,
+            "specialInstructions": ""
         }
     ]    
 }
