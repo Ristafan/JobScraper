@@ -1,0 +1,10 @@
+{
+    "jobPortals":
+    [
+        {
+            "name": "Indeed",
+            "url": "https://www.indeed.com",
+            "apiEndpoint": "/api/jobs"
+        }
+    ]    
+}

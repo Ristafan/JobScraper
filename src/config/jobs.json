@@ -1,0 +1,29 @@
+{
+    "jobPriority1":
+    {
+        "jobNameKeywords": [],
+        "jobLocation": [],
+        "maxJobDistance": 50,
+        "jobType": [],
+        "occupationalCategory": [],
+        "pensum": []
+    },
+    "jobPriority2":
+    {
+        "jobNameKeywords": [],
+        "jobLocation": [],
+        "maxJobDistance": 50,
+        "jobType": [],
+        "occupationalCategory": [],
+        "pensum": []
+    },
+    "jobPriority3":
+    {
+        "jobNameKeywords": [],
+        "jobLocation": [],
+        "maxJobDistance": 50,
+        "jobType": [],
+        "occupationalCategory": [],
+        "pensum": []
+    }
+}
