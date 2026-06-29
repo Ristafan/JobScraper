@@ -29,7 +29,7 @@ class ConfigLoader:
         current_dir = os.path.dirname(os.path.abspath(__file__))
         
         # Load the jobs.json file
-        with open(os.path.join(current_dir, 'config\\jobPortals.json'), 'r') as file:
+        with open(os.path.join(current_dir, 'config/jobportals.json'), 'r') as file:
             job_portal_configs = json.load(file)
 
         # Unpack the job configurations into a list of dictionaries
@@ -40,4 +40,4 @@ class ConfigLoader:
             raise ValueError(f"Requested {self.num_priorities} priorities, but only {len(job_portal_configs)} are available.")
 
         # Save the specified number of priority levels
-        self.job_portal_configs = job_portal_configs[:self.num_priorities]
+        self.job_portal_configs = job_portal_configs[:self.num_priorities][0]
