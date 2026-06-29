@@ -22,7 +22,7 @@ def import_job_configs(num_priorities: int) -> list:
     return job_configs[:num_priorities]
 
 
-class Scraper:
+class JobScraper:
     def __init__(self, job_configs: list):
         self.job_configs = job_configs
         self.found_jobs = []

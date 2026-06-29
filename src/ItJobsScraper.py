@@ -1,10 +1,13 @@
 import requests
 import re
 import json
+from Scraper import JobScraper
 
-class ItJobsExtractor:
+class ItJobsScraper(JobScraper):
     def __init__(self, html_content):
         self.html_content = html_content
+        self.extracted_jobs = self.extract()
+        self.jobInfos = ["title", "company", "location", "status", "remote", "posted_at", "updated_at", "job_expires_in_days", "apply_to"]
 
     def extract(self):
         # target the specific javascript array injection
@@ -23,10 +26,16 @@ class ItJobsExtractor:
         try:
             # parse the string into python dictionaries
             jobs_data = json.loads(json_string)
+
+            # Separate the jobs into a list of dictionaries with only the relevant information
+            jobs_data = [{key: job.get(key, "N/A") for key in self.jobInfos} for job in jobs_data]
+
             return jobs_data
+
         except json.JSONDecodeError:
             # handle potential parsing failures gracefully
             return []
+        
 
 # example usage
 if __name__ == "__main__":
@@ -39,7 +48,7 @@ if __name__ == "__main__":
     extractor = ItJobsExtractor(html_data)
     jobs = extractor.extract()
 
-    jobInfosToPrint = ["title", "company", "location", "status", "remote", "posted_at", "updated_at", "job_expires_in_days", "url"]
+    jobInfosToPrint = ["title", "company", "location", "status", "remote", "posted_at", "updated_at", "job_expires_in_days", "apply_to"]
     
     print(f"extracted {len(jobs)} jobs.")
     if jobs:
