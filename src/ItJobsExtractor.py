@@ -1,13 +1,12 @@
 import requests
 import re
 import json
-from Scraper import JobScraper
 
-class ItJobsScraper(JobScraper):
-    def __init__(self, html_content):
+class ItJobsExtractor:
+    def __init__(self, html_content, job_infos):
         self.html_content = html_content
-        self.extracted_jobs = self.extract()
-        self.jobInfos = ["title", "company", "location", "status", "remote", "posted_at", "updated_at", "job_expires_in_days", "apply_to"]
+        self.job_infos = job_infos
+        self.filtered_jobs = []
 
     def extract(self):
         # target the specific javascript array injection
@@ -27,10 +26,13 @@ class ItJobsScraper(JobScraper):
             # parse the string into python dictionaries
             jobs_data = json.loads(json_string)
 
-            # Separate the jobs into a list of dictionaries with only the relevant information
-            jobs_data = [{key: job.get(key, "N/A") for key in self.jobInfos} for job in jobs_data]
+            for job in jobs_data:
+                # Filter the job dictionary to only include relevant information
+                print(self.job_infos)
+                filtered_job = {key: job.get(key, "N/A") for key in self.job_infos}
+                self.filtered_jobs.append(filtered_job)
 
-            return jobs_data
+            return self.filtered_jobs
 
         except json.JSONDecodeError:
             # handle potential parsing failures gracefully
@@ -40,18 +42,17 @@ class ItJobsScraper(JobScraper):
 # example usage
 if __name__ == "__main__":
     response = requests.get("https://www.itjobs.ch/jobs?q=&category=&job_type=50075&location=Z%C3%BCrich%2C+Kanton+Z%C3%BCrich%2C+Schweiz&location_id=1040687")
-    print(response.status_code)
 
     # convert the response content to string for processing
     html_data = response.text
-        
-    extractor = ItJobsExtractor(html_data)
-    jobs = extractor.extract()
 
     jobInfosToPrint = ["title", "company", "location", "status", "remote", "posted_at", "updated_at", "job_expires_in_days", "apply_to"]
+
+        
+    extractor = ItJobsExtractor(html_data, jobInfosToPrint)
+    jobs = extractor.extract()
+
     
     print(f"extracted {len(jobs)} jobs.")
     if jobs:
-        for job in jobs:
-            job_info = {key: job.get(key, "N/A") for key in jobInfosToPrint}
-            print(job_info)
+        print(jobs)
