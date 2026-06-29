@@ -120,7 +120,7 @@ class IctCareerExtractor:
 # Example usage
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    url = "https://ictcareer.ch/en/jobs?l=Zurich"
+    url = "https://ictcareer.ch/en/jobs?l=Zurich&workload=0-60"
     response = requests.get(url)
     html_data = response.text
 
