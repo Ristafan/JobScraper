@@ -3,17 +3,18 @@ import re
 import json
 
 class ItJobsExtractor:
-    def __init__(self, html_content, job_infos):
-        self.html_content = html_content
-        self.job_infos = job_infos
+    def __init__(self):
         self.filtered_jobs = []
 
-    def extract(self):
+    def extract(self, html_content):
+        # Define the keys we want to extract from each job dictionary
+        job_infos = ["title", "company", "location", "status", "remote", "posted_at", "updated_at", "job_expires_in_days", "apply_to"]
+
         # target the specific javascript array injection
         pattern = r"window\.jobsList\.concat\(\[(.*?)\]\);"
         
         # search the entire html document for the pattern
-        match = re.search(pattern, self.html_content, re.DOTALL)
+        match = re.search(pattern, html_content, re.DOTALL)
         
         if not match:
             # return empty list if the data block is missing
@@ -28,8 +29,7 @@ class ItJobsExtractor:
 
             for job in jobs_data:
                 # Filter the job dictionary to only include relevant information
-                print(self.job_infos)
-                filtered_job = {key: job.get(key, "N/A") for key in self.job_infos}
+                filtered_job = {key: job.get(key, "N/A") for key in job_infos}
                 self.filtered_jobs.append(filtered_job)
 
             return self.filtered_jobs
@@ -45,12 +45,9 @@ if __name__ == "__main__":
 
     # convert the response content to string for processing
     html_data = response.text
-
-    jobInfosToPrint = ["title", "company", "location", "status", "remote", "posted_at", "updated_at", "job_expires_in_days", "apply_to"]
-
         
-    extractor = ItJobsExtractor(html_data, jobInfosToPrint)
-    jobs = extractor.extract()
+    extractor = ItJobsExtractor()
+    jobs = extractor.extract(html_data)
 
     
     print(f"extracted {len(jobs)} jobs.")
