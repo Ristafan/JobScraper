@@ -6,8 +6,8 @@ from datetime import datetime
 from ConfigLoader import ConfigLoader
 from SimpleJobScraper import SimpleJobScraper
 
-from IctCareerExtractor import IctCareerExtractor
-from ItJobsExtractor import ItJobsExtractor
+from extractors.IctCareerExtractor import IctCareerExtractor
+from extractors.ItJobsExtractor import ItJobsExtractor
 
 
 class JobScraper:
