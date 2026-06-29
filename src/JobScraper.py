@@ -6,6 +6,7 @@ from datetime import datetime
 from ConfigLoader import ConfigLoader
 from SimpleJobScraper import SimpleJobScraper
 
+from IctCareerExtractor import IctCareerExtractor
 from ItJobsExtractor import ItJobsExtractor
 
 
@@ -19,6 +20,7 @@ class JobScraper:
 
         self.extractors = {
             "itjobs.ch": ItJobsExtractor,
+            "ictcareer.ch": IctCareerExtractor,
         }
 
     def run_scraper(self):
