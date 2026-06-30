@@ -9,6 +9,7 @@ from SimpleJobScraper import SimpleJobScraper
 from extractors.IctCareerExtractor import IctCareerExtractor
 from extractors.ItJobsExtractor import ItJobsExtractor
 from extractors.StudentJobChExtractor import StudentJobChExtractor
+from extractors.ItBoardPraktikumExtractor import ItBoardPraktikumExtractor
 
 
 class JobScraper:
@@ -22,7 +23,8 @@ class JobScraper:
         self.extractors = {
             "itjobs.ch": ItJobsExtractor,
             "ictcareer.ch": IctCareerExtractor,
-            "studentjob.ch": StudentJobChExtractor
+            "studentjob.ch": StudentJobChExtractor,
+            "itboard.ch": ItBoardPraktikumExtractor
         }
 
     def run_scraper(self):

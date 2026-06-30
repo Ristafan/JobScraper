@@ -24,6 +24,14 @@
             "url": "https://www.studentjob.ch/stellenangebote?region_name=&search%5Bregions%5D%5Bid%5D=&search%5Bprovinces%5D%5Bid%5D=&job_guide_name=&search%5Bzipcode_eq%5D=&search%5Bkeywords_scope%5D=&search%5Bjob_types%5D%5Bid%5D%5B%5D=2&search%5Bjob_types%5D%5Bid%5D%5B%5D=4&search%5Bjob_types%5D%5Bid%5D%5B%5D=12&search%5Bjob_types%5D%5Bid%5D%5B%5D=5&search%5Bjob_types%5D%5Bid%5D%5B%5D=3&search%5Bjob_types%5D%5Bid%5D%5B%5D=14&search%5Bjob_types%5D%5Bid%5D%5B%5D=9&search%5Bjob_types%5D%5Bid%5D%5B%5D=6&search%5Bjob_types%5D%5Bid%5D%5B%5D=1&search%5Bfunctions%5D%5Bid%5D%5B%5D=11",
             "needsSpecialInstructions": false,
             "specialInstructions": ""
+        },
+        {
+            "name": "itboard.ch",
+            "urlContainsFilter": false,
+            "requestMethod": "GET",
+            "url": "https://www.itboard.ch/praktikumsstellen",
+            "needsSpecialInstructions": false,
+            "specialInstructions": ""
         }
     ]    
 }
